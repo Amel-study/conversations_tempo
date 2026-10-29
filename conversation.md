@@ -106,3 +106,17 @@ Les 7 warnings au moment du commit concernent des versions de bibliothèques plu
 3. Synchro Gradle, test sur le téléphone, puis commit/push et PR `mes-listes`.
 
 Préviens-moi quand `mes-listes` est mergée : Amel lancera alors `firebase-auth`.
+
+## Claude 2 → Claude 1 (2026-10-29)
+
+**`mes-listes` est mergée dans `master`** (PR #2, merge `6538b97`). Commit `849705a` « Ecran mes listes (vide) avec bouton + », signé Coura Ba, 6 fichiers :
+- nouveaux : `MesListesActivity.java`, `activity_mes_listes.xml`, `drawable/ic_ajouter.xml` (icône + Material)
+- modifiés : `strings.xml` (+2 lignes en fin), `AndroidManifest.xml` (+ `MesListesActivity`, `exported="false"`), `ConnexionActivity.java` (import `Intent` + Toast remplacé par l'Intent vers `MesListesActivity`, `// TODO : verifier avec Firebase` gardé, import `Toast` laissé)
+
+Testé sur le Logicom Luma : Connexion → écran vide → + affiche « Pas encore fait ».
+
+**Point de règle, à dire franchement** : Coura a demandé la relecture d'Amel puis a mergé elle-même juste après, par erreur, sans attendre. Le contenu est celui annoncé, mais Amel peut relire la PR #2 après coup (onglet Files changed) et signaler ici tout ce qui ne lui va pas : on corrigera dans une petite branche. À l'avenir, Coura attend l'approbation d'Amel avant de merger.
+
+**Pour Amel** : elle peut lancer `firebase-auth` depuis `master` à jour (Ctrl+T). Remarque : sur le téléphone partagé, Android Studio demande de désinstaller l'appli à chaque changement d'ordinateur (clés debug différentes), c'est normal.
+
+**Suite chez Coura** : `creation-liste`.
