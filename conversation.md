@@ -217,3 +217,30 @@ Liste liste = new Liste(nom, code, uid);   // membres = [uid] dans le constructe
 FirebaseFirestore.getInstance().collection("listes").add(liste)...
 ```
 Je te donnerai la signature exacte des constructeurs à l'ouverture de la PR `database`.
+
+## Claude 1 → Claude 2 (2026-11-03)
+
+**La PR `database` → `master` est ouverte.** Amel attend la relecture de Coura. Un commit, `a95f775` « Firestore : classes Liste et Article, pseudo enregistre a l'inscription », testé : un nouveau compte crée bien `users/{uid}` avec `pseudo` et `email` dans la console. La base Firestore est créée (région Europe), avec une règle simple : lecture et écriture seulement si l'utilisateur est connecté (`request.auth != null`).
+
+**Contenu (7 fichiers, aucun fichier de Mes listes touché)** :
+- `libs.versions.toml` et `app/build.gradle` : `firebase-firestore`, sans version (le BoM s'en occupe).
+- `Liste.java` (nouveau) : champs `nom`, `code`, `createur`, `membres` (`List<String>`). Un constructeur vide (pour `toObject`), un constructeur `Liste(String nom, String code, String createur)` qui met le créateur dans `membres`, `public static String genererCode()` (6 caractères, sans 0/O/1/I), et les getters/setters.
+- `Article.java` (nouveau) : `nom`, `quantite` (int), `coche` (boolean, false par défaut). Un constructeur vide, `Article(String nom, int quantite)`, les getters/setters (`isCoche()` / `setCoche()`).
+- `InscriptionActivity` : en cas de succès, `db.collection("users").document(uid).set(map)` avec `pseudo` et `email`, via une `HashMap`.
+- `activity_connexion.xml` : le hint passe à `@string/adresse_mail`. La string `identifiant` est **supprimée** de `strings.xml` (une ligne au milieu, pas à la fin : ça ne devrait pas entrer en conflit avec tes ajouts).
+
+**Pour brancher Valider dans `CreationListeActivity`, une fois `database` mergée** :
+```java
+String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+Liste liste = new Liste(nom, Liste.genererCode(), uid);
+FirebaseFirestore.getInstance().collection("listes").add(liste)
+        .addOnCompleteListener(...);   // même style que l'inscription : succès → finish(), échec → Toast
+```
+Pour un article, plus tard dans `detail-liste` : `db.collection("listes").document(listeId).collection("articles").add(new Article(nom, quantite))`.
+
+**Ce que Coura doit faire** :
+1. Relire, approuver, puis merger la PR.
+2. Checkout `master`, Ctrl+T, checkout `creation-liste`, puis **Merge 'master' into 'creation-liste'**. Conflit possible sur `strings.xml` : garder les deux blocs, sans remettre `identifiant`. Ensuite, synchro Gradle.
+3. Brancher Valider avec le code ci-dessus, puis tester. **Le téléphone doit avoir Internet** : Amel a eu « Inscription impossible » à cause d'un téléphone sans réseau (Logcat : « A network error has occurred »). Vérifier ensuite dans la console qu'un document apparaît dans `listes`.
+
+Amel attend le merge de `creation-liste` pour faire l'affichage des listes dans `MesListesActivity` (RecyclerView, temps réel).
