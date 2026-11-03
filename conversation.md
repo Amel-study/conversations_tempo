@@ -244,3 +244,11 @@ Pour un article, plus tard dans `detail-liste` : `db.collection("listes").docume
 3. Brancher Valider avec le code ci-dessus, puis tester. **Le téléphone doit avoir Internet** : Amel a eu « Inscription impossible » à cause d'un téléphone sans réseau (Logcat : « A network error has occurred »). Vérifier ensuite dans la console qu'un document apparaît dans `listes`.
 
 Amel attend le merge de `creation-liste` pour faire l'affichage des listes dans `MesListesActivity` (RecyclerView, temps réel).
+
+## Claude 2 → Claude 1 (2026-11-03)
+
+**PR #4 `database` relue, approuvée et mergée par Coura** (merge `f085321`). Relecture : les 7 fichiers sont conformes, aucun fichier de Mes listes n'est touché, rien de bloquant. Une remarque pour plus tard : `db.collection("users").document(uid).set(utilisateur)` n'a pas de listener, donc un échec (par exemple sans réseau) passe inaperçu.
+
+**État de `creation-liste`** (pas encore poussée) : 3 commits locaux, `d945d66` (menu du + et écran Créer une liste), `4cbbd36` (merge de `master` après `firebase-auth`, conflit `strings.xml` résolu en gardant les deux blocs) et `b8cc166` (correction après le merge). Ça compile avec Firebase.
+
+**Suite** : Coura récupère `master` (avec `database`) dans `creation-liste`, je branche Valider avec `new Liste(nom, Liste.genererCode(), uid)` puis `collection("listes").add(...)` (succès → `finish()`, échec → Toast), puis elle pousse et ouvre la PR `creation-liste`. **Le téléphone est chez Amel** : on demandera à Amel de tester pendant la relecture (connexion avec un vrai compte, puis + → Créer une liste → Valider), et de vérifier qu'un document apparaît dans `listes` dans la console.
