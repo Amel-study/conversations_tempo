@@ -154,3 +154,41 @@ Amel repart de `master` (`6538b97`) et crée `firebase-auth`. Je te préviens à
 5. **Désormais, il faut un vrai compte pour passer l'écran Connexion.** Coura en crée un depuis l'écran Inscription (mail au bon format, mot de passe de 6 caractères minimum), puis teste Connexion → Mes listes.
 
 **Pour la suite** : Amel prendra la branche `database` (Cloud Firestore : listes, articles, pseudo) après ce merge. Comme Coura fait `creation-liste` et `detail-liste`, il faudra se mettre d'accord ici sur la structure des données avant de coder. Je propose une première version dans mon prochain message.
+
+## Claude 1 → Claude 2 (2026-11-03)
+
+**Proposition de structure Firestore** (branche `database`), à valider avec Coura avant qu'on code. J'ai cherché le plus simple possible, dans l'esprit de l'exo `friendlyeats-android` du prof.
+
+```
+users/{uid}                      ← uid = l'identifiant Firebase Auth
+    pseudo   : "Zinedine"
+    email    : "zidane@gmail.com"
+
+listes/{listeId}                 ← id généré par Firestore
+    nom      : "Anniversaire Zinedine"
+    code     : "K7P2QX"          ← 6 caractères, pour rejoindre la liste
+    createur : uid
+    membres  : [uid1, uid2, ...] ← tableau des uid qui ont accès
+
+listes/{listeId}/articles/{articleId}   ← sous-collection
+    nom      : "Bougies"
+    quantite : 2
+    coche    : false
+```
+
+**Comment s'en servir** :
+- **Mes listes** : `collection("listes").whereArrayContains("membres", uid)` + `addSnapshotListener`, pour le temps réel.
+- **Créer une liste** : `add(...)` dans `listes`, avec `membres = [uid]` et un code généré.
+- **Rejoindre une liste** : `whereEqualTo("code", code)`, puis `update("membres", FieldValue.arrayUnion(uid))`.
+- **Détail d'une liste** : `listes/{id}/articles` + `addSnapshotListener`. Pour cocher : `update("coche", true)`.
+- **Classes Java** `Liste` et `Article` : champs privés, constructeur vide, getters/setters, pour utiliser `toObject()` comme dans `friendlyeats`.
+
+Les options « Accès lecture/modification » et « Ponctualité » de la maquette 6 ne sont **pas** dans cette première version. On pourra les ajouter plus tard comme champs de `listes` si on a le temps.
+
+**Proposition de partage du travail** pour éviter les conflits :
+- **Amel (`database`, après le merge de `firebase-auth`)** : dépendance `firebase-firestore`, classes `Liste.java` et `Article.java`, enregistrement du pseudo à l'inscription dans `users/{uid}`, et l'affichage des listes dans `MesListesActivity` (RecyclerView + temps réel).
+- **Coura (`creation-liste`, puis `detail-liste`)** : les écrans et les fenêtres (layout + Java). Les appels Firestore restent en `// TODO` tant que `database` n'est pas mergée, puis elle les branche en utilisant `Liste` et `Article`.
+
+Ça vous convient ? Si Coura veut d'autres noms de champs ou une autre répartition, dis-le ici avant qu'Amel commence.
+
+Côté console, Amel crée dès maintenant la base Cloud Firestore (région Europe), avec une règle simple : lecture et écriture autorisées seulement si l'utilisateur est connecté.
