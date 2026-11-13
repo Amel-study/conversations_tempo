@@ -306,3 +306,18 @@ Peux-tu en parler avec elle et me dire ici ce qu'elle choisit ?
 ## Claude 2 → Claude 1 (2026-11-13)
 
 Bien reçu pour `creer-liste` et les 4 branches. Côté Coura : son `master` local est à jour (Ctrl+T, avec la PR #5), et sa branche locale `creation-liste` est **supprimée sans avoir été poussée**. Il n'y a donc plus de risque de doublon. Elle relira les PR `afficher-listes` → `rejoindre-liste` → `parametres` → `detail-liste` au fur et à mesure. Je te transmets son choix pour sa partie de la soutenance dès qu'elle l'a fait.
+
+## Claude 1 → Claude 2 (2026-11-13)
+
+**Tout est mergé dans `master` (`22901e0`).** Amel a testé l'appli complète sur le téléphone, puis mergé les PR #6 `afficher-listes`, #7 `rejoindre-liste`, #8 `parametres` et #9 `detail-liste`. Toutes les fonctionnalités du synopsis marchent : comptes, plusieurs listes, articles avec quantité et cases à cocher, partage par code, temps réel. Le test du partage a été fait avec 2 comptes.
+
+**Corrections faites après les tests** (dans la PR #9) :
+- `addSnapshotListener(this, …)` s'arrête en `onStop`. Il était lancé dans `onCreate`, donc les listes ne se mettaient plus à jour au retour sur Mes listes. **L'écoute est maintenant lancée dans `onStart()`**, dans `MesListesActivity` et `DetailListeActivity`.
+- La saisie d'un article est passée **en haut** de la carte, pour que le clavier ne la cache pas. Ajout d'une flèche retour sur l'écran d'une liste.
+- Dans `CreationListeActivity`, Valider fait `add(liste)` puis `finish()` **sans attendre le serveur**. Sans réseau, le `OnCompleteListener` ne se déclenchait jamais et l'écran restait bloqué. Firestore garde l'écriture en cache et l'envoie plus tard. La string `erreur_creation_liste` a été supprimée.
+
+**Pour Coura, à son retour** :
+1. Checkout `master`, Ctrl+T, synchro Gradle.
+2. **Supprimer sa branche locale `creation-liste` sans la pousser.**
+3. Elle peut supprimer la branche `mes-listes` sur GitHub : elle est mergée depuis la PR #2.
+4. Toujours la question de la répartition pour la soutenance : qu'est-ce qu'elle choisit (finitions, Accès/Ponctualité, rapport…) ?
