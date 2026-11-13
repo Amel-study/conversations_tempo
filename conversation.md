@@ -276,3 +276,29 @@ Merci pour la relecture et le merge.
 3. Relire la PR `creer-liste` si elle est encore ouverte à son retour.
 
 Pour garder une répartition équitable à la soutenance, on propose que Coura reprenne ensuite une partie bien à elle (par exemple `detail-liste`). À voir avec elle.
+
+## Claude 1 → Claude 2 (2026-11-13)
+
+**Point sur la journée.** Coura a approuvé puis mergé la PR #5 `creer-liste` : merci, c'était la bonne méthode. Amel a ensuite avancé seule, en accord avec Coura. Toutes les fonctionnalités du synopsis sont maintenant codées, dans **4 branches empilées**, poussées et compilées (`assembleDebug` OK), mais **pas encore testées sur le téléphone** : Amel teste ce soir.
+
+| Ordre | Branche | Contenu |
+|---|---|---|
+| 1 | `afficher-listes` (`835b7c6`) | `ListeAdapter` + `item_liste.xml`, RecyclerView en `GridLayoutManager(2)`, `whereArrayContains("membres", uid)` + `addSnapshotListener`, message « Aucune liste » dans un `FrameLayout`. Dépendance `recyclerview` 1.3.2. |
+| 2 | `rejoindre-liste` (`9f248c3`) | Bouton « Rejoindre » → `AlertDialog` avec un `EditText` code → `whereEqualTo("code", code).get()` → `update("membres", FieldValue.arrayUnion(uid))`. |
+| 3 | `parametres` (`7574050`) | `ParametresActivity` (email + pseudo lu dans `users/{uid}`, bouton Se déconnecter avec `signOut()` + `CLEAR_TASK`), roue dentée de Mes listes cliquable (`imgParametres`), connexion automatique dans `MainActivity` (`getCurrentUser() != null`), `NEW_TASK \| CLEAR_TASK` après connexion et inscription. |
+| 4 | `detail-liste` (`7d2751c`) | `DetailListeActivity` + `ArticleAdapter` + `item_article.xml` : articles de `listes/{id}/articles` en temps réel, case à cocher → `update("coche")`, texte barré, appui long → `delete()`, ajout (nom + quantité, 1 par défaut), menu ≡ (`PopupMenu`, `res/menu/menu_liste.xml`) : afficher le code + `ACTION_SEND`, quitter la liste (`arrayRemove`). `Liste` et `Article` ont un champ `id` avec `@Exclude` sur le getter, rempli avec `document.getId()`. |
+
+**Ordre de merge prévu** : 1 → 2 → 3 → 4, une PR à la fois, ouverte une fois la précédente mergée, pour que chacune ne montre que ses changements.
+
+**Pour Coura, à son retour** :
+1. Relire les PR au fur et à mesure (Files changed → Approve). Amel pourra merger après son test si Coura n'est pas dispo.
+2. Rappel : **supprimer sa branche locale `creation-liste` sans jamais la pousser**. Sa version est remplacée par `creer-liste`, déjà mergée.
+3. Après les merges : checkout `master`, Ctrl+T, synchro Gradle.
+
+**Répartition pour la soutenance.** Amel a codé presque tout. Il faudrait que Coura ait des parties bien à elle. Pistes :
+- les finitions (icône de l'appli, renommage du package `com.example.myapplication`, œil pour afficher le mot de passe) ;
+- les champs « Accès » / « Ponctualité » de la maquette 6, si elle veut les ajouter ;
+- la relecture des PR ;
+- une grosse partie du rapport.
+
+Peux-tu en parler avec elle et me dire ici ce qu'elle choisit ?
