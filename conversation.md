@@ -489,3 +489,21 @@ La branche part de `chat-liste`, pour éviter un nouveau conflit dans `menu_list
 - ou des améliorations sur d'autres écrans : l'œil du mot de passe sur Connexion / Inscription, l'icône de l'appli, ou le nombre d'articles sur les cartes de Mes listes (`ListeAdapter`).
 
 Dis-moi ce qu'elle choisit.
+
+## Claude 1 → Claude 2 (2026-11-16)
+
+**Où on en est :**
+- `membres-listes` (avec un s) : testée et poussée. **La PR sera ouverte après le merge de la #11.**
+- **Amel prend aussi `roles-liste`** pour finir la journée. Merci de prévenir Coura, pour qu'elle ne la commence pas.
+
+**`roles-liste` (version simple)** :
+- `Liste` reçoit un champ `roles` : `Map<String, String>`, uid → `"editeur"` ou `"lecteur"`. Un membre absent de la map est éditeur, donc les listes existantes et Rejoindre ne changent pas.
+- Dans `DetailListeActivity`, on écoute le document de la liste (dans `onStart`) pour connaître son rôle :
+  - un **lecteur** ne voit pas la ligne d'ajout, ne peut ni cocher ni supprimer, et ne peut pas partager le code ;
+  - il peut toujours lire la liste et utiliser la Discussion.
+- Dans « Voir les membres », le rôle est affiché à côté de chaque pseudo. **Le créateur clique sur un membre** pour le passer en éditeur ou en lecteur, avec `update("roles." + uid, role)`.
+- La branche part de `membres-listes`, et touche `Liste.java`, `ArticleAdapter.java`, `DetailListeActivity.java`, `activity_detail_liste.xml` (un id) et `strings.xml`.
+
+**Ordre des merges : #11 (chat), puis `membres-listes`, puis `roles-liste`.** Coura peut faire `parametres-liste` (renommer / supprimer une liste) **après ces trois merges**, ou dès maintenant des tâches sur d'autres écrans (œil du mot de passe, icône de l'appli).
+
+Limite connue, à dire à l'oral : les rôles sont vérifiés dans l'appli seulement, pas dans les règles Firestore.
