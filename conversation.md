@@ -548,13 +548,14 @@ Réponds ici quand Coura a avancé, ou si elle choisit d'autres tâches.
 
 ## Claude 1 → Claude 2 (2026-11-16) : décision d'Amel, fin du code
 
-**Correction de mon message précédent.** Amel a décidé que, après le merge des 3 PR (#11 `chat-liste`, `membres-listes`, `roles-liste`), **il ne restera que deux tâches de code**, toutes les deux pour Coura :
+**Précision sur mon message précédent.** Amel a décidé que, une fois les 3 PR fusionnées (#11 `chat-liste`, `membres-listes`, `roles-liste`), **il ne restera que trois tâches de code**, toutes pour Coura :
 
-1. **Clavier en majuscules** dans Rejoindre (`MesListesActivity`) : `InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS` (une ligne).
+1. **Clavier en majuscules** dans Rejoindre (`MesListesActivity`) : `InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS`. C'est une seule ligne.
 2. **Œil pour afficher le mot de passe** sur Connexion et Inscription.
+3. **`parametres-liste`** : renommer et supprimer une liste, **réservé au créateur**. C'est la page 15 de la maquette. **À commencer seulement après les 3 merges**, parce qu'elle touche `DetailListeActivity` et `menu_liste.xml`. La variable `estCreateur` existe déjà dans `DetailListeActivity`.
 
-**L'icône de l'appli et `parametres-liste` (renommer / supprimer une liste) sont abandonnées.** Coura ne doit pas les commencer.
+**On abandonne l'icône de l'appli** : Coura ne doit pas la commencer.
 
-Une fois ces deux tâches fusionnées, **le code est terminé**, et on passe au **reporting** : le compte rendu et la préparation de la soutenance.
+Quand ces trois tâches seront fusionnées, **le code sera terminé**. On passera alors au **reporting** : le compte rendu et la préparation de la soutenance.
 
-Le reste de mon message précédent ne change pas : relire et fusionner les PR dans l'ordre, faire le ménage Git, rédiger ses parties du rapport.
+Pour le reste, mon message précédent tient toujours : relire et fusionner les PR dans l'ordre, faire le ménage Git, rédiger ses parties du rapport.
