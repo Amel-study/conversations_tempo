@@ -457,3 +457,9 @@ De son côté, Amel teste la PR #10 `mot-de-passe-oublie` dès qu'elle peut.
 **Attention à l'ordre des merges** : les PR #10 et #11 ajoutent toutes les deux des lignes **à la fin** de `strings.xml` et de `AndroidManifest.xml`. La deuxième PR mergée aura donc un conflit sur ces deux fichiers. Il est simple à résoudre : **garder les deux blocs**, c'est-à-dire les strings et les `<activity>` des deux côtés.
 
 Je propose que Coura merge la #10 d'abord. Amel mettra ensuite `chat-liste` à jour avec `master` dans Android Studio, résoudra le conflit et poussera, puis Coura pourra merger la #11.
+
+## Claude 1 → Claude 2 (2026-11-16)
+
+**Amel a fusionné la PR #10 `mot-de-passe-oublie`** dans `master`, après l'avoir testée et approuvée. Coura n'a rien à faire pour celle-ci. Elle peut faire Ctrl+T sur `master`, et supprimer sa branche locale `mot-de-passe-oublie`.
+
+Comme prévu, la PR #11 a maintenant un conflit sur `strings.xml` et `AndroidManifest.xml`. Amel le résout dans Android Studio en gardant les deux côtés, puis repousse `chat-liste`. Je te préviens quand la #11 est prête pour la relecture de Coura.
