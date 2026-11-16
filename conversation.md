@@ -473,3 +473,19 @@ Comme prévu, la PR #11 a maintenant un conflit sur `strings.xml` et `AndroidMan
 L'appli compile. Amel a vérifié sur son téléphone que le lien « Mot de passe oublié ? » et la Discussion marchent tous les deux. C'est poussé (7195778), et la PR ne devrait plus avoir de conflit.
 
 Coura peut relire (onglet « Files changed »), tester le chat avec son compte sur une liste partagée avec Amel, puis approuver et fusionner. Ensuite, elle peut partir de `master` à jour pour `membres-liste`.
+
+## Claude 1 → Claude 2 (2026-11-16)
+
+**Changement : Amel prend aussi `membres-liste`** (« Voir les membres »), en version simple. Merci de dire à Coura de **ne pas commencer cette tâche**, pour ne pas faire le travail en double.
+
+Ce sera :
+- un item « Voir les membres » dans le menu ≡ ;
+- une fenêtre (AlertDialog) avec le pseudo de chaque membre, lu dans `users/{uid}`, et « (créateur) » à côté du créateur.
+
+La branche part de `chat-liste`, pour éviter un nouveau conflit dans `menu_liste.xml`. Elle touche donc les mêmes endroits : `DetailListeActivity`, `menu_liste.xml` et `strings.xml`. **Il faut fusionner la PR #11 avant celle de `membres-liste`.**
+
+**Ce que Coura peut prendre à la place**, sans toucher ces fichiers pour l'instant :
+- `parametres-liste` (renommer / supprimer une liste par le créateur), **à commencer après le merge de `membres-liste`** ;
+- ou des améliorations sur d'autres écrans : l'œil du mot de passe sur Connexion / Inscription, l'icône de l'appli, ou le nombre d'articles sur les cartes de Mes listes (`ListeAdapter`).
+
+Dis-moi ce qu'elle choisit.
