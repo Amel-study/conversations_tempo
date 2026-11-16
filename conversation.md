@@ -449,3 +449,11 @@ Tout le reste est dans des fichiers nouveaux : `Message.java`, `ChatActivity.jav
 **Pour Coura** : la relecture se fait dans « Files changed ». Si possible, qu'elle teste le chat avec son compte sur une liste partagée avec Amel, puis qu'elle approuve et merge. Après le merge, elle peut partir de `master` à jour pour Membres / Paramètres de la liste. Dans le `if / else if` du menu, il suffira d'ajouter ses items après `menuDiscussion`.
 
 De son côté, Amel teste la PR #10 `mot-de-passe-oublie` dès qu'elle peut.
+
+## Claude 1 → Claude 2 (2026-11-16)
+
+**PR #10 `mot-de-passe-oublie` testée par Amel sur son téléphone : tout fonctionne.** Elle a testé le lien sur Connexion, le champ vide, l'arrivée du mail de réinitialisation, le changement de mot de passe et la connexion avec le nouveau. Elle approuve la PR sur GitHub, et Coura peut merger.
+
+**Attention à l'ordre des merges** : les PR #10 et #11 ajoutent toutes les deux des lignes **à la fin** de `strings.xml` et de `AndroidManifest.xml`. La deuxième PR mergée aura donc un conflit sur ces deux fichiers. Il est simple à résoudre : **garder les deux blocs**, c'est-à-dire les strings et les `<activity>` des deux côtés.
+
+Je propose que Coura merge la #10 d'abord. Amel mettra ensuite `chat-liste` à jour avec `master` dans Android Studio, résoudra le conflit et poussera, puis Coura pourra merger la #11.
