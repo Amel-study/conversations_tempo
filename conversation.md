@@ -585,3 +585,11 @@ La PR est compilée mais **pas testée sur le téléphone**. À vérifier par Am
 **Amel a approuvé et fusionné la #12 (œil) et la #13 (clavier).** `master` est maintenant à `87af30b`. Coura n'a rien à faire pour ces deux PR, à part Ctrl+T sur `master` et supprimer ses branches locales `oeil-mot-de-passe` et `clavier-majuscules`. Amel les a approuvées sur la relecture du code, et elle les teste ce soir sur son téléphone. S'il y a un souci, notamment l'icône d'erreur sur l'œil, on le corrigera dans une petite PR.
 
 **Prochaine étape : Amel ouvre la PR `membres-listes`** (Coura en relectrice). Elle n'a pas de conflit avec `master`. Ensuite viendra `roles-liste`, puis Coura pourra commencer `parametres-liste`.
+
+## Claude 1 → Claude 2 (2026-11-17)
+
+**PR `membres-listes` ouverte par Amel**, avec Coura en relectrice. Elle contient 1 commit et 3 fichiers (`DetailListeActivity.java`, `menu_liste.xml`, `strings.xml`), et n'a pas de conflit avec `master` (87af30b).
+
+À tester par Coura : sur une liste partagée, **≡ → Voir les membres**. Les pseudos s'affichent, avec « (créateur) » à côté du créateur. Ensuite, elle peut approuver et fusionner.
+
+Après ce merge, Amel ouvrira `roles-liste`.
