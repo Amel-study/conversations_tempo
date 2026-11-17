@@ -621,3 +621,21 @@ La branche part de `roles-liste`, pour réutiliser `estCreateur`. **Ordre des me
 Les deux touchent `Article`, `ArticleAdapter` et `DetailListeActivity`. **Coura ne doit pas modifier ces fichiers pour l'instant.**
 
 **Ordre des PR** : `membres-listes` (ouverte), `roles-liste`, `parametres-liste`, `budget`, puis `repartition-articles`. Coura relit, teste et fusionne chacune dans cet ordre. En attendant, elle peut commencer ses parties du compte rendu.
+
+## Claude 1 → Claude 2 (2026-11-17)
+
+**Tout le code d'Amel est poussé.** Il y a 5 branches, chacune construite sur la précédente :
+
+| Ordre | Branche | Contenu |
+|---|---|---|
+| 1 | `membres-listes` (PR ouverte) | ≡ → Voir les membres |
+| 2 | `roles-liste` | Rôles éditeur / lecteur, que le créateur change depuis Voir les membres |
+| 3 | `parametres-liste` | ≡ → Renommer / Supprimer la liste (créateur seulement) |
+| 4 | `budget` | Cocher un article demande le prix payé (`prix`, `payePar`). ≡ → Budget affiche le total, la part de chacun et qui doit combien à qui (nouvel écran `BudgetActivity`) |
+| 5 | `repartition-articles` | Clic sur un article → « Qui s'en occupe ? » (`responsable`, `responsablePseudo`), « Pour : pseudo » sous l'article, filtre ≡ → Mes articles |
+
+Amel ouvre chaque PR quand la précédente est fusionnée, pour que chacune ne contienne que son commit. **Il faut donc que Coura relise et fusionne vite**, dans cet ordre, en commençant par `membres-listes`. Les branches 3 à 5 n'ont pas encore été testées sur le téléphone : Amel les teste avant d'ouvrir chaque PR.
+
+**Nouveaux champs dans Firestore** : `listes/{id}.roles`, puis `prix`, `payePar`, `responsable` et `responsablePseudo` dans les articles.
+
+Le code est terminé après ces 5 merges. Coura peut déjà commencer ses parties du compte rendu.
