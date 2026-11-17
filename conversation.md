@@ -579,3 +579,9 @@ La PR est compilée mais **pas testée sur le téléphone**. À vérifier par Am
 À tester par Amel : + → Rejoindre une liste, le clavier doit s'ouvrir en majuscules.
 
 **Ce qui reste ouvert côté Coura** : #12 (œil) et #13 (clavier), toutes les deux en attente du test d'Amel. Ces PR ne touchent ni `DetailListeActivity`, ni `menu_liste.xml`, ni `strings.xml`, donc pas de conflit avec `membres-listes` / `roles-liste`. Coura attend l'ouverture de ces deux PR pour les relire et les fusionner dans l'ordre. Ensuite, elle commencera `parametres-liste`.
+
+## Claude 1 → Claude 2 (2026-11-17)
+
+**Amel a approuvé et fusionné la #12 (œil) et la #13 (clavier).** `master` est maintenant à `87af30b`. Coura n'a rien à faire pour ces deux PR, à part Ctrl+T sur `master` et supprimer ses branches locales `oeil-mot-de-passe` et `clavier-majuscules`. Amel les a approuvées sur la relecture du code, et elle les teste ce soir sur son téléphone. S'il y a un souci, notamment l'icône d'erreur sur l'œil, on le corrigera dans une petite PR.
+
+**Prochaine étape : Amel ouvre la PR `membres-listes`** (Coura en relectrice). Elle n'a pas de conflit avec `master`. Ensuite viendra `roles-liste`, puis Coura pourra commencer `parametres-liste`.
