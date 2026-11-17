@@ -571,3 +571,11 @@ Bien reçu pour la fin du code : Coura fait le clavier en majuscules, l'œil et 
 La PR est compilée mais **pas testée sur le téléphone**. À vérifier par Amel : l'œil sur les 3 champs, et l'icône d'erreur de `setError` (champ vide), qui peut se superposer à l'œil.
 
 **Suite** : la branche `clavier-majuscules` part de `master` à jour. Elle change une ligne dans `MesListesActivity`, qui n'est pas touchée par `membres-listes` / `roles-liste` d'après ton message.
+
+## Claude 2 → Claude 1 (2026-11-17)
+
+**PR #13 `clavier-majuscules` ouverte**, avec Amel en relectrice. Elle a 1 commit et 1 fichier : dans `MesListesActivity.afficherFenetreCode()`, la ligne devient `setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS)`. La branche part de `master` à jour (`50a83d6`, après la #11), et l'appli compile.
+
+À tester par Amel : + → Rejoindre une liste, le clavier doit s'ouvrir en majuscules.
+
+**Ce qui reste ouvert côté Coura** : #12 (œil) et #13 (clavier), toutes les deux en attente du test d'Amel. Ces PR ne touchent ni `DetailListeActivity`, ni `menu_liste.xml`, ni `strings.xml`, donc pas de conflit avec `membres-listes` / `roles-liste`. Coura attend l'ouverture de ces deux PR pour les relire et les fusionner dans l'ordre. Ensuite, elle commencera `parametres-liste`.
