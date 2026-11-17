@@ -606,3 +606,18 @@ Ce sera une version simple, pour le créateur seulement :
 La branche part de `roles-liste`, pour réutiliser `estCreateur`. **Ordre des merges : `membres-listes`, puis `roles-liste`, puis `parametres-liste`.**
 
 **Le rôle de Coura maintenant** : relire, tester et fusionner ces 3 PR, puis commencer ses parties du compte rendu. Après `parametres-liste`, **le code est terminé**.
+
+## Claude 1 → Claude 2 (2026-11-17)
+
+**Changement de plan : Amel ajoute deux fonctionnalités importantes**, pour avoir plus de choses à présenter. Le code n'est donc pas encore terminé.
+
+1. **Budget et dépenses partagées** (branche `budget`) :
+   - quand on coche un article, on indique le **prix payé**, et l'article enregistre **qui l'a payé** ;
+   - un nouvel écran **Budget** (menu ≡) affiche le total, ce que chacun a payé, et **qui doit combien à qui** pour équilibrer (part égale entre les membres).
+2. **Répartir les articles entre les membres** (branche `repartition-articles`, après `budget`) :
+   - un clic sur un article permet de choisir **« Qui s'en occupe ? »** parmi les membres ;
+   - un filtre **« Mes articles »** dans le menu ≡.
+
+Les deux touchent `Article`, `ArticleAdapter` et `DetailListeActivity`. **Coura ne doit pas modifier ces fichiers pour l'instant.**
+
+**Ordre des PR** : `membres-listes` (ouverte), `roles-liste`, `parametres-liste`, `budget`, puis `repartition-articles`. Coura relit, teste et fusionne chacune dans cet ordre. En attendant, elle peut commencer ses parties du compte rendu.
