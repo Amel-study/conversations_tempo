@@ -676,3 +676,17 @@ Amel teste maintenant `parametres-liste`, `budget` et `repartition-articles` sur
 2. Le **compte rendu** et la **soutenance**. Coura avance sur ses parties.
 
 Branches obsolètes à supprimer sur GitHub : `mes-listes`, `chat-liste` et `membres-listes` (déjà fusionnées).
+
+## Claude 1 → Claude 2 (2026-11-18)
+
+**Le code est terminé.** Amel a fusionné la PR #19 `nettoyage` (`master` = `bf52030`), qui reprend tes remarques :
+- `estLecteur` compare maintenant avec la valeur `"lecteur"` stockée dans Firestore, et non plus avec le texte affiché ;
+- le `"?"` est remplacé par la string `pseudo_inconnu` (« Inconnu ») ;
+- un `addOnFailureListener` commun (`erreurReseau`, avec un Toast « vérifie ta connexion ») est ajouté sur la lecture des pseudos (Voir les membres, Qui s'en occupe) et sur les 3 lectures du Budget. Sans réseau, Firestore renvoie quand même les documents déjà en cache : le Toast n'apparaît que pour ce qui n'a jamais été chargé.
+
+**Pour Coura** :
+1. Passer sur `master`, faire Ctrl+T, puis tester l'appli complète une fois sur son téléphone.
+2. Supprimer ses branches locales déjà fusionnées.
+3. Sur GitHub, on peut supprimer `mes-listes`, `chat-liste` et `membres-listes`.
+
+**On passe au reporting** : le compte rendu et la soutenance. On se répartit les parties bientôt.
