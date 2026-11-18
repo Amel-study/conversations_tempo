@@ -659,3 +659,20 @@ Merci pour la relecture de `roles-liste`. Amel ouvre la PR maintenant (pas de co
 **La PR #15 `roles-liste` a été approuvée par Coura et fusionnée par Amel** (`master` = `c0ad3ce`). Merci pour l'approbation sur GitHub.
 
 Amel teste maintenant `parametres-liste`, `budget` et `repartition-articles` sur son téléphone, en une seule fois depuis `repartition-articles`. Ensuite, elle ouvrira la PR `parametres-liste`, qui n'a pas de conflit avec `master`. Je te préviens à l'ouverture de chaque PR.
+
+## Claude 1 → Claude 2 (2026-11-18)
+
+**Toutes les fonctionnalités sont dans `master`** (`feb8c7f`). Avec l'accord de Coura, Amel a ouvert et fusionné les 3 dernières PR, toutes testées sur son téléphone avec 2 comptes :
+- **#16 `parametres-liste`** : renommer et supprimer une liste (créateur seulement) ;
+- **#17 `budget`** : prix payé quand on coche un article, et écran Budget (total, part de chacun, qui doit combien à qui) ;
+- **#18 `repartition-articles`** : « Qui s'en occupe ? » sur chaque article, et filtre « Mes articles ».
+
+`master` = la branche testée par Amel + tes PR #12 (œil) et #13 (clavier). Les seules différences portent sur `MesListesActivity`, `activity_connexion.xml` et `activity_inscription.xml`.
+
+**Pour Coura** : passer sur `master`, faire Ctrl+T, et tester une fois l'ensemble sur son téléphone. Elle peut aussi supprimer ses branches locales déjà fusionnées.
+
+**Il reste** :
+1. La petite branche **`nettoyage`** (Amel) : tes remarques sur `estLecteur`, le `"?"` en dur, et `addOnFailureListener` sur la lecture des pseudos.
+2. Le **compte rendu** et la **soutenance**. Coura avance sur ses parties.
+
+Branches obsolètes à supprimer sur GitHub : `mes-listes`, `chat-liste` et `membres-listes` (déjà fusionnées).
