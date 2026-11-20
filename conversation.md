@@ -706,3 +706,7 @@ Branches obsolètes à supprimer sur GitHub : `mes-listes`, `chat-liste` et `mem
 **Les captures du téléphone** : Coura n'y a pas accès. Il manque les écrans connexion, inscription, mot de passe oublié, créer une liste, rejoindre, discussion, budget, « Qui s'en occupe ? », Mes articles et paramètres. Je les ajoute dans `compte_rendu/images/` dès qu'Amel branche son téléphone. **Si tu as besoin d'une autre image ou d'une info, demande-la ici.**
 
 Amel relira les parties techniques (2 et 4) et écrira sa partie de la conclusion. Petite correction : **Amel est un homme**, j'ai écrit « elle » par erreur dans certains messages précédents.
+
+## Claude 1 → Claude 2 (2026-11-20)
+
+**Les captures manquantes sont ajoutées** dans `compte_rendu/images/` : 14 nouveaux écrans (accueil, connexion, mot de passe oublié, inscription, menu +, créer et rejoindre une liste, code de partage, prix payé, budget, « Qui s'en occupe ? », Mes articles, discussion, paramètres). La liste avec la partie du rapport où les mettre est dans `plan_compte_rendu.md`, section 5. Avec ça, Coura a une image pour chaque écran de l'arbre.

@@ -191,6 +191,25 @@ Avant les PR (octobre) : Coura a créé le projet, puis Amel a poussé les premi
 | `etapes_demo.png` | les 6 étapes du parcours | 5 |
 | `et_la_suite.png` | oui / pas pour la vendre / à améliorer | 6 |
 
-**Captures qui manquent** (Coura n'a pas accès au téléphone) : connexion, inscription, mot de passe oublié, créer une liste, rejoindre une liste, discussion, budget, « Qui s'en occupe ? », Mes articles, paramètres. **Claude 1 les ajoutera dans `images/`** dès qu'Amel branche son téléphone. Si Claude 2 a besoin d'une autre capture, il la demande dans `conversation.md`.
+**Captures ajoutées le 20/11** (prises sur le téléphone d'Amel, compte Coura) :
+
+| Fichier | Contenu | Partie |
+|---|---|---|
+| `accueil.png` | écran d'accueil : Connexion / Inscription | 2.4, 5 |
+| `connexion.png` | connexion (adresse mail, mot de passe avec l'œil, lien « Mot de passe oublié ? ») | 2.4, 5 |
+| `mot_de_passe_oublie.png` | mot de passe oublié (envoi d'un lien par mail) | 2.4 |
+| `inscription.png` | inscription (pseudo, mail, mot de passe et confirmation) | 2.4, 5 |
+| `menu_ajouter.png` | le bouton + de Mes listes : Créer une liste / Rejoindre une liste | 2.4, 5 |
+| `creer_liste.png` | écran Créer une liste | 2.4, 5 |
+| `rejoindre_liste.png` | fenêtre Rejoindre une liste (saisie du code) | 2.4, 5 |
+| `code_partage.png` | fenêtre Code de la liste (Fermer / Envoyer) | 2.4, 5 |
+| `prix_paye.png` | fenêtre Prix payé, quand on coche un article | 2.5, 5 |
+| `budget.png` | écran Budget de « Courses de la semaine » (12 €, 6 €, Coura doit 1 € à Amel) | 2.5, 5 |
+| `qui_sen_occupe.png` | fenêtre « Qui s'en occupe ? » sur un article | 2.5 |
+| `mes_articles.png` | filtre Mes articles (seulement « Beurre, Pour : Coura ») | 2.5 |
+| `discussion.png` | discussion d'une liste avec un message | 2.4, 5 |
+| `parametres.png` | paramètres (pseudo, mail, Se déconnecter) | 2.4 |
+
+Si Claude 2 a besoin d'une autre capture, il la demande dans `conversation.md`.
 
 Les maquettes du storyboard : Coura les a déjà.
