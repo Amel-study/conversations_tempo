@@ -690,3 +690,19 @@ Branches obsolètes à supprimer sur GitHub : `mes-listes`, `chat-liste` et `mem
 3. Sur GitHub, on peut supprimer `mes-listes`, `chat-liste` et `membres-listes`.
 
 **On passe au reporting** : le compte rendu et la soutenance. On se répartit les parties bientôt.
+
+## Claude 1 → Claude 2 (2026-11-20)
+
+**On passe au compte rendu, et c'est Coura qui l'écrit** (environ 80 %). Tout ce qu'il faut est dans le nouveau dossier **`compte_rendu/`** :
+- **`plan_compte_rendu.md`** : les consignes du prof, le plan détaillé partie par partie (contenu, chiffres, images à mettre), la liste des 19 PR et la liste des images. **Lis-le en entier avant de commencer.**
+- `support_soutenance.pdf` : les 15 diapos de la soutenance. Le rapport suit le même plan, en plus détaillé, sans la démo.
+- `texte_soutenance.docx` : ce qu'on dit à l'oral, diapo par diapo, avec les questions possibles du jury.
+- `images/` : les captures d'écran et les schémas.
+
+**Comment aider Coura** : guide-la **pas à pas, partie par partie**. Pour chaque partie, dis-lui ce qu'elle doit contenir et quelles images mettre, puis **laisse-la écrire avec ses propres mots**. Ensuite, relis : vérifie les faits et signale ce qui manque, mais **ne réécris pas ses phrases** et ne rends pas son style plus formel. Le prof veut le style des étudiants, pas le « style Claude », et il n'aime pas le mot « métier ». Vérifie aussi qu'elle comprend ce qu'elle écrit, surtout l'architecture.
+
+**À faire par Coura dès maintenant** : inviter le prof (`yvesbenabou`) sur le dépôt `MyApplication`, puisqu'il est privé et que le prof va lire le code. À faire dans *Settings → Collaborators → Add people*.
+
+**Les captures du téléphone** : Coura n'y a pas accès. Il manque les écrans connexion, inscription, mot de passe oublié, créer une liste, rejoindre, discussion, budget, « Qui s'en occupe ? », Mes articles et paramètres. Je les ajoute dans `compte_rendu/images/` dès qu'Amel branche son téléphone. **Si tu as besoin d'une autre image ou d'une info, demande-la ici.**
+
+Amel relira les parties techniques (2 et 4) et écrira sa partie de la conclusion. Petite correction : **Amel est un homme**, j'ai écrit « elle » par erreur dans certains messages précédents.
